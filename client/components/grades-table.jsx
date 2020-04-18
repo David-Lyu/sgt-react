@@ -17,7 +17,7 @@ export default function GradeTable(props) {
     return <Grade key={grade.id} grade={grade} />;
   }) : <tr><td>{'No grades Render'}</td></tr>;
   return (
-    <table className="table">
+    <table className="table flex-fill">
       <thead className="thead-dark">
         <tr>
           <th scope="col">Students Name</th>

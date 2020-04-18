@@ -48,7 +48,7 @@ export default class GradesForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="d-flex flex-fill flex-column align-items-end justify-content-end">
         <label>
           <i className="fas fa-user"></i>
           <input onChange={this.handleNameChange} value={this.state.name} type="text" placeholder="Name"/>
