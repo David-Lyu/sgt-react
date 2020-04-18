@@ -1,29 +1,40 @@
 import React from 'react';
+import Header from './header';
 import GradeTable from './grades-table';
-
-function Header(props) {
-  return <h1>Student Grade Table</h1>;
-}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: []
+      grades: [],
+      avgGrades: null
     };
+  }
+
+  getAverageGrades() {
+    let sumGrades = 0;
+    for (let i = 0; i < this.state.grades.length; i++) {
+      sumGrades += parseInt(this.state.grades[i].grade);
+    }
+    const avgGrades = sumGrades / this.state.grades.length;
+    this.setState({ avgGrades });
   }
 
   componentDidMount() {
     fetch('/api/grades')
       .then(res => res.json())
-      .then(grades => this.setState({ grades }))
+      .then(grades => {
+        this.setState({ grades });
+        this.getAverageGrades();
+      })
       .catch(err => console.error(err));
+
   }
 
   render() {
     return (
       <>
-        <Header/>
+        <Header average={this.state.avgGrades}/>
         <GradeTable grades={this.state.grades}/>
       </>
     );
