@@ -6,6 +6,7 @@ export default class GradesForm extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCourseChange = this.handleCourseChange.bind(this);
     this.handleGradeChange = this.handleGradeChange.bind(this);
+    this.clearForm = this.clearForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       name: '',
@@ -34,6 +35,10 @@ export default class GradesForm extends React.Component {
       grade: this.state.grade
     };
     this.props.postGrade(newGrade);
+    this.clearForm();
+  }
+
+  clearForm() {
     this.setState({
       name: '',
       course: '',
@@ -58,7 +63,7 @@ export default class GradesForm extends React.Component {
         </label>
         <div>
           <button>Add</button>
-          <button type="reset" onClick={e => e.target.reset}>Cancel</button>
+          <button type="reset" onClick={this.clearForm}>Cancel</button>
         </div>
       </form>
     );
