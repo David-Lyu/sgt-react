@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.postGrade = this.postGrade.bind(this);
+    this.getAverageGrades = this.getAverageGrades.bind(this);
     this.state = {
       grades: [],
       avgGrades: null
@@ -19,7 +20,7 @@ class App extends React.Component {
       sumGrades += parseInt(this.state.grades[i].grade);
     }
     const avgGrades = sumGrades / this.state.grades.length;
-    this.setState({ avgGrades });
+    return avgGrades || 'N/A';
   }
 
   postGrade(formData) {
@@ -44,7 +45,6 @@ class App extends React.Component {
       .then(res => res.json())
       .then(grades => {
         this.setState({ grades });
-        this.getAverageGrades();
       })
       .catch(err => console.error(err));
 
@@ -53,7 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header average={this.state.avgGrades}/>
+        <Header average={this.getAverageGrades()}/>
         <GradeTable grades={this.state.grades}/>
         <GradesForm postGrade={this.postGrade}/>
       </>
