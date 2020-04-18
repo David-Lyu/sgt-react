@@ -1,5 +1,5 @@
 import React from 'react';
-import GradeTable from './rviewGrades';
+import GradeTable from './grades-table';
 
 function Header(props) {
   return <h1>Student Grade Table</h1>;
