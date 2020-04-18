@@ -3,36 +3,20 @@ body {
   margin: 0 auto;
 }
 
-body> div {
+body > div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-basis: 100%;
+
+table.table {
+  width: 60%;
 }
 
-table {
-  flex-basis: 60%;
-}
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-basis: 30%;
+  width: 30%;
 }
 
-label {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-form > div {
-  display: flex;
-  justify-content: flex-end;
+input {
+  margin-left: 5px;
 }
