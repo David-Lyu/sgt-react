@@ -69,11 +69,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div className= "container">
         <Header average={this.getAverageGrades()}/>
-        <GradeTable grades={this.state.grades} gradeDelete={this.deleteGrade}/>
-        <GradesForm postGrade={this.postGrade}/>
-      </>
+        <div className="row">
+          <GradeTable grades={this.state.grades} gradeDelete={this.deleteGrade}/>
+          <GradesForm postGrade={this.postGrade}/>
+        </div>
+      </div>
     );
   }
 }

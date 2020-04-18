@@ -48,22 +48,33 @@ export default class GradesForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="d-flex flex-fill flex-column align-items-end justify-content-end">
-        <label>
-          <i className="fas fa-user"></i>
-          <input onChange={this.handleNameChange} value={this.state.name} type="text" placeholder="Name"/>
+      <form onSubmit={this.handleSubmit} className="col-4">
+        <label className="form-group row">
+          <i className="fas fa-user col-1"></i>
+          <input onChange={this.handleNameChange}
+            value={this.state.name} type="text"
+            className="offset-1 col-8"placeholder="Name"/>
         </label>
-        <label>
-          <i className="far fa-list-alt"></i>
-          <input onChange={this.handleCourseChange} value={this.state.course} placeholder="Course" type="text"/>
+        <label className="form-group row">
+          <i className="far fa-list-alt col-1"></i>
+          <input onChange={this.handleCourseChange}
+            value={this.state.course} className=" offset-1 col-8"
+            placeholder="Course" type="text"/>
         </label>
-        <label>
-          <i className="fas fa-graduation-cap"></i>
-          <input onChange={this.handleGradeChange} value={this.state.grade} placeholder="Grade" type="number"/>
+        <label className="form-group row">
+          <i className="fas fa-graduation-cap col-1"></i>
+          <input onChange={this.handleGradeChange}
+            value={this.state.grade} className=" offset-1 col-8"
+            placeholder="Grade" type="number"/>
         </label>
-        <div>
-          <button>Add</button>
-          <button type="reset" onClick={this.clearForm}>Cancel</button>
+        <div className="form-group row">
+          <button className="btn btn-success btn-sm offset-1">
+            Add
+          </button>
+          <button type="reset" onClick={this.clearForm}
+            className="btn btn-outline-dark btn-sm offset-1">
+              Cancel
+          </button>
         </div>
       </form>
     );
