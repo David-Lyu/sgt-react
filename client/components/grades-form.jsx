@@ -49,26 +49,26 @@ export default class GradesForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="col-4">
-        <label className="form-group row">
-          <i className="fas fa-user col-1"></i>
+        <label className="form-group row input-group-prepend">
+          <i className="fas fa-user input-group-text"></i>
           <input onChange={this.handleNameChange}
             value={this.state.name} type="text"
-            className="offset-1 col-8"placeholder="Name"/>
+            className="col-9"placeholder="Name"/>
         </label>
-        <label className="form-group row">
-          <i className="far fa-list-alt col-1"></i>
+        <label className="form-group row input-group-prepend">
+          <i className="far fa-list-alt input-group-text"></i>
           <input onChange={this.handleCourseChange}
-            value={this.state.course} className=" offset-1 col-8"
+            value={this.state.course} className="col-9"
             placeholder="Course" type="text"/>
         </label>
-        <label className="form-group row">
-          <i className="fas fa-graduation-cap col-1"></i>
+        <label className="form-group row input-group-prepend">
+          <i className="fas fa-graduation-cap input-group-text"></i>
           <input onChange={this.handleGradeChange}
-            value={this.state.grade} className=" offset-1 col-8"
+            value={this.state.grade} className="col-9"
             placeholder="Grade" type="number"/>
         </label>
         <div className="form-group row">
-          <button className="btn btn-success btn-sm offset-1">
+          <button className="btn btn-success btn-sm">
             Add
           </button>
           <button type="reset" onClick={this.clearForm}
