@@ -1,8 +1,32 @@
 import React from 'react';
+import GradeTable from './rviewGrades';
+
+function Header(props) {
+  return <h1>Student Grade Table</h1>;
+}
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      grades: []
+    };
+  }
+
+  componentDidMount() {
+    fetch('/api/grades')
+      .then(res => res.json())
+      .then(grades => this.setState({ grades }))
+      .catch(err => console.error(err));
+  }
+
   render() {
-    return null;
+    return (
+      <>
+        <Header/>
+        <GradeTable grades={this.state.grades}/>
+      </>
+    );
   }
 }
 
