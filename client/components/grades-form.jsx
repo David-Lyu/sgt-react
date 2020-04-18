@@ -6,6 +6,7 @@ export default class GradesForm extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCourseChange = this.handleCourseChange.bind(this);
     this.handleGradeChange = this.handleGradeChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       name: '',
       course: '',
@@ -13,21 +14,36 @@ export default class GradesForm extends React.Component {
     };
   }
 
-  handleNameChange() {
-    console.log('name');
+  handleNameChange(e) {
+    this.setState({ name: e.target.value });
   }
 
-  handleCourseChange() {
-    console.log('course');
+  handleCourseChange(e) {
+    this.setState({ course: e.target.value });
   }
 
-  handleGradeChange() {
-    console.log('grade');
+  handleGradeChange(e) {
+    this.setState({ grade: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const newGrade = {
+      name: this.state.name,
+      course: this.state.course,
+      grade: this.state.grade
+    };
+    this.props.postGrade(newGrade);
+    this.setState({
+      name: '',
+      course: '',
+      grade: ''
+    });
   }
 
   render() {
     return (
-      <form onSubmit={this.props.postGrade(this.state)}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           <i className="fas fa-user"></i>
           <input onChange={this.handleNameChange} value={this.state.name} type="text" placeholder="Name"/>

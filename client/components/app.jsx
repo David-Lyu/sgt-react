@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './header';
 import GradeTable from './grades-table';
-import GradesForm from './GradesForm';
+import GradesForm from './grades-form';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,13 +24,12 @@ class App extends React.Component {
 
   postGrade(formData) {
     const req = {
-      method: 'post',
+      method: 'POST',
       headers: {
-        'Content-type': 'application/json'
+        'Content-Type': 'application/json'
       },
-      body: formData
+      body: JSON.stringify(formData)
     };
-    console.log(formData);
     fetch('/api/grades', req)
       .then(res => res.json())
       .then(newGrade => {
